@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func Calculator() {
 
@@ -8,33 +11,52 @@ func Calculator() {
 	fmt.Println("Как тебя зовут?")
 	fmt.Scanf("%s\n", &name)
 
-	fmt.Println("Вашему вниманию предоставляется универсальный калькулятор? разработанный начинающим программистом")
+	fmt.Println("Вашему вниманию предоставляется универсальный калькулятор, разработанный начинающим программистом")
 
-	var x, y, z int
+	var one, two, sum int
 
 	fmt.Println("Введите число 1:")
-	fmt.Scanf("%d\n", &x)
+	fmt.Scanf("%d\n", &one)
+
+	fmt.Println(reflect.TypeOf(one))
+
+	//oneInt, err := strconv.Atoi(one)
+	//if err != nil {
+	//fmt.Println("ошибка, введите число повторно")
+	//fmt.Scanf("%s\n", &one)
+	//}
+
+	//fmt.Println(reflect.TypeOf(oneInt))
 
 	var symbol string
 	fmt.Println("Введите арифметическое действие:")
 	fmt.Scanf("%s\n", &symbol)
 
 	fmt.Println("Введите число 2:")
-	fmt.Scanf("%d\n", &y)
+	fmt.Scanf("%d\n", &two)
+
+	fmt.Println(reflect.TypeOf(two))
+
+	//twoInt, err := strconv.Atoi(two)
+	//if err != nil {
+	//	fmt.Println("ошибка, введите число повторно")
+	//	fmt.Scanf("%s\n", &two)
+	//}
+	//fmt.Println(reflect.TypeOf(twoInt))
 
 	switch symbol {
 	case "+":
-		z = x + y
-		fmt.Println(name, ", Ваш результат", z)
+		sum = one + two
+		fmt.Println(name, ", Ваш результат", sum)
 	case "-":
-		z = x - y
-		fmt.Println(name, ", Ваш результат", z)
+		sum = one - two
+		fmt.Println(name, ", Ваш результат", sum)
 	case "*":
-		z = x * y
-		fmt.Println(name, ", Ваш результат", z)
+		sum = one * two
+		fmt.Println(name, ", Ваш результат", sum)
 	case "/":
-		z = x / y
-		fmt.Println(name, ", Ваш результат", z)
+		sum = one / two
+		fmt.Println(name, ", Ваш результат", sum)
 	}
 }
 func main() {
