@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"strconv"
 )
 
 func Calculator() {
@@ -13,20 +14,20 @@ func Calculator() {
 
 	fmt.Println("Вашему вниманию предоставляется универсальный калькулятор, разработанный начинающим программистом")
 
-	var one, two, sum int
+	var one, two, sum string
 
 	fmt.Println("Введите число 1:")
 	fmt.Scanf("%d\n", &one)
 
 	fmt.Println(reflect.TypeOf(one))
 
-	//oneInt, err := strconv.Atoi(one)
-	//if err != nil {
-	//fmt.Println("ошибка, введите число повторно")
-	//fmt.Scanf("%s\n", &one)
-	//}
+	oneInt, err := strconv.Atoi(one)
+	if err != nil {
+		fmt.Println("ошибка, введите число повторно")
+		fmt.Scanf("%s\n", &one)
+	}
 
-	//fmt.Println(reflect.TypeOf(oneInt))
+	fmt.Println(reflect.TypeOf(oneInt))
 
 	var symbol string
 	fmt.Println("Введите арифметическое действие:")
