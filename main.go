@@ -13,8 +13,8 @@ func Scan() {
 
 	fmt.Println("Вашему вниманию предоставляется универсальный калькулятор, разработанный начинающим программистом")
 
-	var one, two, sum string
-
+	var one, two string
+	var sum int
 	fmt.Println("Введите число 1:")
 	fmt.Scanf("%s\n", &one)
 
@@ -23,7 +23,6 @@ func Scan() {
 		fmt.Println("ошибка, введите число повторно")
 		fmt.Scanf("%s\n", &one)
 	}
-
 	var symbol string
 	fmt.Println("Введите арифметическое действие:")
 	fmt.Scanf("%s\n", &symbol)
@@ -39,20 +38,20 @@ func Scan() {
 
 	switch symbol {
 	case "+":
-		sum = one + two
+		sum = oneInt + twoInt
 	case "-":
-		sum = one - two
+		sum = oneInt - twoInt
 	case "*":
-		sum = one * two
+		sum = oneInt * twoInt
 	case "/":
-		sum = one / two
+		sum = oneInt / twoInt
 	default:
-		fmt.Println("ОШИБКА")
+		fmt.Println("ОШИБКА, неверное указано логарифмическое действие")
 	}
 	fmt.Println(sum)
 }
-
 func main() {
+
 	Scan()
 
 }
