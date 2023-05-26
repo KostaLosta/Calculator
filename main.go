@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Calculator/counter"
 	"fmt"
 	"strconv"
 )
@@ -103,8 +104,19 @@ func Scan() { // почему опять одна функция которая 
 	fmt.Println(sum)
 }
 func main() {
+	// ответ почему у тебя не получилось, в документации есть как создать проект в go
+	// https://go.dev/doc/code
+	// что я сделал точнее какие команды ввел
+	//   1. go mod init Calculator
+	//   2. go mod tidy
+	//   3.  go install Calculator
+
+	// что с этим делать, ответ это тоже просто запоминается на изусть действия при создании проекта на go
+
+	counter.CreatedPackageForBro()
 
 	Scan() //  return 3 variables
+	counter.CreatedPackageForBro()
 
 	// calc() // return 1 variables
 
