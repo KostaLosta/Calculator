@@ -2,35 +2,31 @@ package main
 
 import (
 	"Calculator/calc"
+	"Calculator/printResult"
+	record "Calculator/recordFile" // посмотри сюда  я в качестве примера, назвал по разному папку и пакет
 	"Calculator/scan"
-	"fmt"
-	"os"
 )
 
-func print(sum int) {
-	fmt.Println("Результат:", sum)
-}
-func main() {
+var (
+	history = "history.txt"
+)
 
+func main() {
+	// последовательность работы
+	// 1. работа с файлом
+	// 1.1  Создать файл, куда записывать результаты, если он уже создаy то ничего не делать
+
+	record.CreateFile(history)
+
+	// 2. Получение данных, приведения их к типу с которым надо работать, сама работа
 	name, oneInt, twoInt, symbol := scan.Scan()
 
 	sum := calc.Calc(oneInt, twoInt, symbol)
 
-	print(sum)
+	// 3. Открывавем файл куда записывать, записываем
+	record.Filewrite(history, name, oneInt, twoInt, sum)
 
-	recordLine := fmt.Sprintf("Пользватель %s, ввел первое число %d, второе %d, результат: %d", name, oneInt, twoInt, sum)
-
-	// функция создания файла
-
-	file, err := os.Create("hello.txt")
-	if err != nil {
-		fmt.Println("Не удалось создать файл:", err)
-		os.Exit(1)
-	}
-	defer file.Close()
-	file.WriteString(recordLine)
+	// когда приложение отработало корректно, выводим результат
+	printResult.PrintResult(sum)
 
 }
-
-// калькулятор считает, записывает, файл создается с добавлением в него значений.
-// Однако при каждом запуске происходит добавление последний данных, я думаю это из-за того что пересоздается и перезаписывается новый файл7 Подскажи как добавлять данные в имеющийся файл.
