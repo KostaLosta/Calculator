@@ -1,10 +1,10 @@
 package main
 
 import (
-	"Calculator/calc"
-	"Calculator/printResult"
-	record "Calculator/recordFile" // посмотри сюда  я в качестве примера, назвал по разному папку и пакет
-	"Calculator/scan"
+	"Calculator/pcg/calc"
+	"Calculator/pcg/printResult"
+	record "Calculator/pcg/recordFile" // посмотри сюда  я в качестве примера, назвал по разному папку и пакет
+	"Calculator/pcg/scan"
 )
 
 var (
