@@ -5,8 +5,6 @@ import (
 	"Calculator/pkg/printResult"
 	record "Calculator/pkg/recordFile"
 	"Calculator/pkg/scan"
-	"database/sql"
-	"fmt"
 )
 
 var (
@@ -30,20 +28,5 @@ func main() {
 
 	// когда приложение отработало корректно, выводим результат
 	printResult.PrintResult(sum)
-
-	connStr := "user=postgres password=mypass dbname=calculat sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
-	if err != nil {
-		panic(err)
-	}
-	defer db.Close()
-
-	result, err := db.Exec("insert into calculat (username, onenumber,twonumber, resultat) values (name, oneInt, twoInt, sum)")
-
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(result.LastInsertId()) // не поддерживается
-	fmt.Println(result.RowsAffected()) // количество добавленных строк
 
 }
